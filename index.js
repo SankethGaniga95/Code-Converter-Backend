@@ -21,7 +21,7 @@ app.post("/convert",async(req,res)=>{
         },
         data:{
             model:"gpt-3.5-turbo-0613",
-            messages:[{role:"user",content:`Conver the ${code} into ${language}`}],
+            messages:[{role:"user",content:`Just Convert the ${code} into ${language}, don't give any explanations`}],
             max_tokens:1000,
         }
     }
