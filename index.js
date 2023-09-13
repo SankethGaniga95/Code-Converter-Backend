@@ -11,6 +11,7 @@ const API_KEY=process.env.API_KEY
 
 
 app.post("/convert",async(req,res)=>{
+    const {language,code}=req.body
     const options={
         method:"POST",
         url:"https://api.openai.com/v1/chat/completions",
@@ -20,8 +21,8 @@ app.post("/convert",async(req,res)=>{
         },
         data:{
             model:"gpt-3.5-turbo-0613",
-            messages:[{role:"user",content:req.body.message}],
-            max_tokens:100,
+            messages:[{role:"user",content:`Conver the ${code} into ${language}`}],
+            max_tokens:1000,
         }
     }
     try{
